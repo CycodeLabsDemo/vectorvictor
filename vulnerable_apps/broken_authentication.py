@@ -1,12 +1,16 @@
+
 """
 Broken Authentication Vulnerability Demo
 OWASP A07:2021 - Identification and Authentication Failures
 """
 from flask import Flask, request, session, make_response
 import hashlib
+import os
+import secrets
 
 app = Flask(__name__)
-app.secret_key = 'insecure_secret_key'  # VULNERABLE: Weak secret key
+# FIXED: Using a strong, randomly generated secret key from environment variables
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(32))
 
 # Simulated user database
 users_db = {
