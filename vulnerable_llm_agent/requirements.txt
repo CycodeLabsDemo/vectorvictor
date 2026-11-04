@@ -4,7 +4,7 @@
 # Core LLM dependencies
 llama-cpp-python==0.2.11
 transformers==4.35.0
-torch==2.1.0
+torch==2.10.0
 
 # Vector database and embeddings
 chromadb==0.4.15
